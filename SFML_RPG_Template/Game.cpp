@@ -9,3 +9,5 @@ Game::~Game()
 {
 
 }
+
+// Functions
