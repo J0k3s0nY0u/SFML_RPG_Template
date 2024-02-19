@@ -22,7 +22,13 @@ Game::~Game()
 	delete this->window;
 }
 
+void Game::updateDt()
+{
+    this->dt = this->dtClock.getElapsedTime().asSeconds();
+}
+
 // Functions
+
 
 void Game::updateSFMLEvents()
 {
@@ -51,6 +57,7 @@ void Game::run()
 {
     while (this->window->isOpen())
     {
+        this->updateDt();
         this->update();
         this->render();
     }

@@ -1,5 +1,5 @@
 #pragma once
-
+ 
 #include<iostream>
 #include<ctime>
 #include<cstdlib>
@@ -17,6 +17,9 @@ private:
 	sf::RenderWindow *window;
 	sf::Event sfEvent;
 
+	sf::Clock dtClock;
+	float dt;
+
 	// Initialization
 	void initWindow();
 
@@ -26,6 +29,7 @@ public:
 	virtual ~Game();
 
 	// Functions
+	void updateDt();
 	void updateSFMLEvents();
 	void update();
 	void render();
