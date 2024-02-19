@@ -6,6 +6,7 @@
 
 void Game::initWindow()
 {
+    /*Create an SFML window using options from a window.ini File.*/
 	this-> window = new sf::RenderWindow(sf::VideoMode(1200, 600), "C++ SFML works!");
 }
 
