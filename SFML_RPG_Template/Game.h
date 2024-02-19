@@ -13,12 +13,17 @@
 class Game
 {
 private:
+	// Variables
+
+	// Initialization
+	void initWindow();
 
 public:
+	// Constructors/Destructors
 	Game();
 	virtual ~Game();
 
-	//Functions
+	// Functions
 	void updateEvents();
 	void update();
 	void render();
