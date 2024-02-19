@@ -13,7 +13,7 @@ void Game::initWindow()
 
 Game::Game()
 {
-
+    this->initWindow();
 }
 
 Game::~Game()
