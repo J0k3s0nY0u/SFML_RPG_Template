@@ -27,9 +27,6 @@ void Game::updateDt()
     /*Update the dt variable with the time it takes to update and render one frame.*/
 
     this->dt = this->dtClock.restart().asSeconds();
-
-    system("cls");
-    std::cout << this->dt << "\n";
 }
 
 // Functions
