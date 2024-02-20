@@ -24,11 +24,15 @@ Game::~Game()
 
 void Game::updateDt()
 {
-    this->dt = this->dtClock.getElapsedTime().asSeconds();
+    /*Update the dt variable with the time it takes to update and render one frame.*/
+
+    this->dt = this->dtClock.restart().asSeconds();
+
+    system("cls");
+    std::cout << this->dt << "\n";
 }
 
 // Functions
-
 
 void Game::updateSFMLEvents()
 {
