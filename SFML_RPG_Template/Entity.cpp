@@ -25,10 +25,6 @@ void Entity::render(sf::RenderTarget* target)
 {
 	if (target)
 	{
-
-	}
-	else
-	{
 		target->draw(this->shape);
 	}
 }
