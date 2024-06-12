@@ -75,7 +75,7 @@ void MainMenuState::updateInput(const float& dt)
 
 void MainMenuState::updateButtons()
 {
-	/*Updates all the buttons in this State and handles functionality*/
+	/* Updates all the buttons in this State and handles functionality */
 	for (auto &it : this->buttons)
 	{
 		it.second->update(this->mousePosView);
