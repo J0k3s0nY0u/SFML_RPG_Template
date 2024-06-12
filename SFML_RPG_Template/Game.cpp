@@ -9,6 +9,7 @@ void Game::initWindow()
     /*Create an SFML window using options from a window.ini File.*/
 
     std::ifstream ifs("Config/window.ini");
+    this->videoModes = sf::VideoMode::getFullscreenModes();
 
     std::string title = "None";
     sf::VideoMode window_bounds(800,600);

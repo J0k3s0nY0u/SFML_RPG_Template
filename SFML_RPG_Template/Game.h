@@ -8,6 +8,7 @@ private:
 	// Variables
 	sf::RenderWindow *window;
 	sf::Event sfEvent;
+	std::vector<sf::VideoMode> videoModes;
 
 	sf::Clock dtClock;
 	float dt;
