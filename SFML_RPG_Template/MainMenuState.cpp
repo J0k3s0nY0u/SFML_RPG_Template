@@ -1,5 +1,14 @@
 #include "MainMenuState.h"
 
+// Initializer Functions
+void MainMenuState::initVariables()
+{
+}
+
+void MainMenuState::initBackground()
+{
+}
+
 void MainMenuState::initFonts()
 {
 	if (!this->font.loadFromFile("Fonts/FredokaOne-Regular.ttf"))
