@@ -64,12 +64,11 @@ void MainMenuState::initButtons()
 MainMenuState::MainMenuState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states)
 	: State(window, supportedKeys, states)
 {
+	this->initVariables();
+	this->initBackground();
 	this->initFonts();
 	this->initKeybinds();
 	this->initButtons();
-
-	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
-	this->background.setFillColor(sf::Color::Magenta);
 }
 
 MainMenuState::~MainMenuState()
