@@ -86,12 +86,6 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::updateInput(const float& dt)
 {
-	
-
-//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::G))
-	{
-
-	}
 }
 
 void MainMenuState::updateButtons()

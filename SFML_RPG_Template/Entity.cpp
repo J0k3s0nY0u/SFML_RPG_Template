@@ -1,19 +1,36 @@
 #include "Entity.h"
 
+void Entity::initVariables()
+{
+	this->texture = NULL;
+	this->sprite = NULL;
+	this->movementSpeed = 100.f;
+}
+
 Entity::Entity()
 {
-	this->shape.setSize(sf::Vector2f(50.f, 50.f));
-	this->shape.setFillColor(sf::Color::White);
-	this->movementSpeed = 100.f;
+	this->initVariables();
 }
 
 Entity::~Entity()
 {
+	delete this->sprite;
 }
 
+//Component Functions
+void Entity::createSprite(sf::Texture* texture)
+{
+	this->texture = texture;
+	sprite->setTexture(*this->texture);
+}
+
+//Functions
 void Entity::move(const float& dt, const float dir_x, const float dir_y)
 {
-	this->shape.move(dir_x * this->movementSpeed * dt, dir_y * this->movementSpeed * dt);
+	if (this->sprite)
+	{
+		this->sprite->move(dir_x * this->movementSpeed * dt, dir_y * this->movementSpeed * dt);
+	}
 }
 
 void Entity::update(const float& dt)
@@ -23,8 +40,8 @@ void Entity::update(const float& dt)
 
 void Entity::render(sf::RenderTarget* target)
 {
-	if (target)
+	if (this->sprite)
 	{
-		target->draw(this->shape);
+		target->draw(*this->sprite);
 	}
 }
