@@ -28,11 +28,6 @@ GameState::~GameState()
 
 }
 
-void GameState::endState()
-{
-	std::cout << "Ending the GameState!" << "\n";
-}
-
 void GameState::updateInput(const float& dt)
 {
 	//Update player input
@@ -54,7 +49,7 @@ void GameState::updateInput(const float& dt)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("CLOSE"))))
 	{
-		this->quit = true;
+		this->endState();
 	}
 }
 
