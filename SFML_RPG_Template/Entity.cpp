@@ -21,7 +21,7 @@ Entity::~Entity()
 void Entity::createSprite(sf::Texture* texture)
 {
 	this->texture = texture;
-	sprite->setTexture(*this->texture);
+	this->sprite = new sf::Sprite(*this->texture);
 }
 
 //Functions
