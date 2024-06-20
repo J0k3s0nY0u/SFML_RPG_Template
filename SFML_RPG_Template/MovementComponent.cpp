@@ -20,11 +20,7 @@ const sf::Vector2f& MovementComponent::getVelocity() const
 void MovementComponent::move(const float dir_x, const float dir_y, const float& dt)
 {
 	/* Accelerating a sprite until it reaches its max velocity */
-
-	//Acceleration
-
 	this->velocity.x += this->acceleration * dir_x;
-	
 	this->velocity.y += this->acceleration * dir_y;
 }
 
