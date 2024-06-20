@@ -30,7 +30,11 @@ void MovementComponent::move(const float dir_x, const float dir_y, const float& 
 
 void MovementComponent::update(const float& dt)
 {
-	//Decceleration
+	/*
+	Deccelerates the sprite and controls the maximum velocity.
+	Moves the sprite.
+	*/
+
 	if (this->velocity.x > 0.f) // Check for Right x Axis
 	{
 		// Max Velocity Check x Positive
@@ -58,6 +62,35 @@ void MovementComponent::update(const float& dt)
 		if (this->velocity.x > 0.f)
 		{
 			this->velocity.x = 0.f;
+		}
+	}
+	if (this->velocity.y > 0.f) // Check for Right y Axis
+	{
+		// Max Velocity Check y Positive
+		if (this->velocity.y > this->maxVelocity)
+		{
+			this->velocity.y = this->maxVelocity;
+		}
+
+		//Decceleration y Positive
+		this->velocity.y -= decceleration;
+		if (this->velocity.y < 0.f)
+		{
+			this->velocity.y = 0.f;
+		}
+	}
+	else if (this->velocity.y < 0.f) // Check for Left y Axis
+	{
+		//Max Velocity Check y Negative
+		if (this->velocity.y < -this->maxVelocity)
+		{
+			this->velocity.y = -this->maxVelocity;
+		}
+
+		this->velocity.y += decceleration;
+		if (this->velocity.y > 0.f)
+		{
+			this->velocity.y = 0.f;
 		}
 	}
 
