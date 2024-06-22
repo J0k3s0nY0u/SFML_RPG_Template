@@ -42,7 +42,7 @@ private:
 		}
 
 		//Functions
-		void update(const float& dt)
+		void play(const float& dt)
 		{
 			//Update Timer
 			this->timer = 10.f * dt;
@@ -60,11 +60,16 @@ private:
 				{
 					this->currentRect.left = this->startRect.left;
 				}
+
+				this->sprite.setTextureRect(this->currentRect);
 			}
 		}
 
-		void pause();
-		void reset();
+		void reset()
+		{
+			this->timer = 0.f;
+			this->currentRect = this->startRect;
+		}
 
 	};
 
@@ -80,9 +85,5 @@ public:
 	//Functions
 	void addAnimation(const std::string key);
 
-	void startAnimation(const std::string animation);
-	void pauzeAnimation(const std::string animation);
-	void resetAnimation(const std::string animation);
-
-	void update(const float& dt);
+	void play(const std::string key, const float& dt);
 };

@@ -12,6 +12,11 @@ AnimationComponent::~AnimationComponent()
 //Functions
 
 
-void AnimationComponent::update(const float& dt)
+void AnimationComponent::addAnimation(const std::string key)
 {
+}
+
+void AnimationComponent::play(const std::string key, const float& dt)
+{
+	this->animations[key].play(dt);
 }
