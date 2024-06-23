@@ -21,7 +21,7 @@ public:
 	//Component Functions
 	void setTexture(sf::Texture& texture);
 	void createMovementComponent(const float maxVelocity, const float acceleration, const float decceleration);
-	void createAnimationComponent(sf::Sprite& sprite, sf::Texture& texture_sheet);
+	void createAnimationComponent(sf::Texture& texture_sheet);
 
 	//Functions
 	virtual void setPosition(const float x, const float y);

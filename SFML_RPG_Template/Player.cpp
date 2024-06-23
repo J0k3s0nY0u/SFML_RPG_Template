@@ -7,17 +7,20 @@ void Player::initVariables()
 
 void Player::initComponents()
 {
-	this->createMovementComponent(250.f, 15.f, 5.f);
+	
 }
 
 //Constructors / Destructors
 Player::Player(float x, float y, sf::Texture& texture_sheet)
 {
 	this->initVariables();
-	this->initComponents();
 
-	this->setTexture(texture_sheet);
 	this->setPosition(x, y);
+
+	this->createMovementComponent(250.f, 15.f, 5.f);
+	this->createAnimationComponent(texture_sheet);
+
+	this->animationComponent->addAnimation("IDLE_LEFT", 100.f, 0, 0, 7, 0, 32, 32);
 }
 
 Player::~Player()
