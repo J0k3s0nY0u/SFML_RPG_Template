@@ -11,12 +11,12 @@ void Player::initComponents()
 }
 
 //Constructors / Destructors
-Player::Player(float x, float y, sf::Texture& texture)
+Player::Player(float x, float y, sf::Texture& texture_sheet)
 {
 	this->initVariables();
 	this->initComponents();
 
-	this->setTexture(texture);
+	this->setTexture(texture_sheet);
 	this->setPosition(x, y);
 }
 
