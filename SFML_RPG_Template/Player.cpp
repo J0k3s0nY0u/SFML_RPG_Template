@@ -20,7 +20,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 	this->createMovementComponent(250.f, 15.f, 5.f);
 	this->createAnimationComponent(texture_sheet);
 
-	this->animationComponent->addAnimation("IDLE_LEFT", 10.f, 0, 0, 7, 0, 32, 32);
+	this->animationComponent->addAnimation("IDLE_LEFT", 10.f, 0, 0, 12, 0, 128, 128);
 }
 
 Player::~Player()
