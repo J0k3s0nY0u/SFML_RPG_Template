@@ -15,8 +15,6 @@ AnimationComponent::~AnimationComponent()
 }
 
 //Functions
-
-
 void AnimationComponent::addAnimation(
 	const std::string key, 
 	float animation_timer,

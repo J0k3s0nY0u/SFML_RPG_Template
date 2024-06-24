@@ -20,7 +20,8 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 	this->createMovementComponent(250.f, 15.f, 5.f);
 	this->createAnimationComponent(texture_sheet);
 
-	this->animationComponent->addAnimation("IDLE_LEFT", 10.f, 0, 0, 12, 0, 128, 128);
+	this->animationComponent->addAnimation("IDLE_LEFT", 10.f, 0, 5, 12, 5, 128, 128);
+	this->animationComponent->addAnimation("WALK_RIGHT", 10.f, 0, 2, 7, 2, 128, 128);
 }
 
 Player::~Player()
@@ -32,5 +33,12 @@ void Player::update(const float& dt)
 {
 	this->movementComponent->update(dt);
 
-	this->animationComponent->play("IDLE_LEFT", dt);
+	if (this->movementComponent->idle())
+	{
+		this->animationComponent->play("IDLE_LEFT", dt);
+	}
+	else
+	{
+		this->animationComponent->play("WALK_RIGHT", dt);
+	}
 }
