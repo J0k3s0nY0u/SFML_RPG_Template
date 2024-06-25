@@ -1,9 +1,9 @@
 #include "MovementComponent.h"
 
 MovementComponent::MovementComponent(sf::Sprite& sprite, 
-	float maxVelocity, float acceleration, float decceleration)
+	float maxVelocity, float acceleration, float deceleration)
 	: sprite(sprite), 
-	maxVelocity(maxVelocity), acceleration(acceleration), decceleration(decceleration)
+	maxVelocity(maxVelocity), acceleration(acceleration), deceleration(deceleration)
 {
 }
 
@@ -17,17 +17,82 @@ const sf::Vector2f& MovementComponent::getVelocity() const
 }
 
 //Functions
-const bool MovementComponent::idle() const
+const bool MovementComponent::getStates(const short unsigned state) const
 {
-	if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+	switch (state)
 	{
-		return true;
+	case IDLE:
+		if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	case MOVING:
+		if (this->velocity.x != 0.f || this->velocity.y != 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	case MOVING_RIGHT:
+		if (this->velocity.x > 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	case MOVING_LEFT:
+		if (this->velocity.x < 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	case MOVING_UP:
+		if (this->velocity.y < 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	case MOVING_DOWN:
+		if (this->velocity.y > 0.f)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		break;
+
+	default:
+
+		break;
 	}
-	else 
-	{
-		return false;
-	}
-	
+
+	return false;
 }
 
 void MovementComponent::move(const float dir_x, const float dir_y, const float& dt)
@@ -40,7 +105,7 @@ void MovementComponent::move(const float dir_x, const float dir_y, const float& 
 void MovementComponent::update(const float& dt)
 {
 	/*
-	Deccelerates the sprite and controls the maximum velocity.
+	Decelerates the sprite and controls the maximum velocity.
 	Moves the sprite.
 	*/
 
@@ -52,8 +117,8 @@ void MovementComponent::update(const float& dt)
 			this->velocity.x = this->maxVelocity;
 		}
 
-		//Decceleration x Positive
-		this->velocity.x -= decceleration;
+		//Deceleration x Positive
+		this->velocity.x -= deceleration;
 		if (this->velocity.x < 0.f)
 		{
 			this->velocity.x = 0.f;
@@ -67,7 +132,7 @@ void MovementComponent::update(const float& dt)
 			this->velocity.x = -this->maxVelocity;
 		}
 
-		this->velocity.x += decceleration;
+		this->velocity.x += deceleration;
 		if (this->velocity.x > 0.f)
 		{
 			this->velocity.x = 0.f;
@@ -81,8 +146,8 @@ void MovementComponent::update(const float& dt)
 			this->velocity.y = this->maxVelocity;
 		}
 
-		//Decceleration y Positive
-		this->velocity.y -= decceleration;
+		//Deceleration y Positive
+		this->velocity.y -= deceleration;
 		if (this->velocity.y < 0.f)
 		{
 			this->velocity.y = 0.f;
@@ -96,7 +161,7 @@ void MovementComponent::update(const float& dt)
 			this->velocity.y = -this->maxVelocity;
 		}
 
-		this->velocity.y += decceleration;
+		this->velocity.y += deceleration;
 		if (this->velocity.y > 0.f)
 		{
 			this->velocity.y = 0.f;
