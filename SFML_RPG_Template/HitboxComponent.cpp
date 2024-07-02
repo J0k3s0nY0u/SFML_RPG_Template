@@ -2,8 +2,10 @@
 
 HitboxComponent::HitboxComponent()
 {
+
 }
 
 HitboxComponent::~HitboxComponent()
 {
+
 }
