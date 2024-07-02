@@ -1,5 +1,6 @@
 #pragma once
 
+#include "HitboxComponent.h"
 #include "MovementComponent.h"
 #include "AnimationComponent.h"
 
@@ -11,6 +12,7 @@ private:
 protected:
 	sf::Sprite sprite;
 
+	HitboxComponent* hitboxComponent;
 	MovementComponent* movementComponent;
 	AnimationComponent* animationComponent;
 
