@@ -25,6 +25,11 @@ void Entity::setTexture(sf::Texture& texture)
 	this->sprite.setTexture(texture);
 }
 
+void Entity::createHitboxComponent(sf::Sprite& sprite)
+{
+	this->hitboxComponent = new HitboxComponent(sprite, 0, 0, sprite.getGlobalBounds().width, sprite.getGlobalBounds().height);
+}
+
 void Entity::createMovementComponent(const float maxVelocity, const float acceleration,const float decceleration)
 {
 	this->movementComponent = new MovementComponent(this->sprite, maxVelocity, acceleration, decceleration);

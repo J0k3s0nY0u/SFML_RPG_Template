@@ -22,6 +22,7 @@ public:
 
 	//Component Functions
 	void setTexture(sf::Texture& texture);
+	void createHitboxComponent(sf::Sprite& sprite);
 	void createMovementComponent(const float maxVelocity, const float acceleration, const float decceleration);
 	void createAnimationComponent(sf::Texture& texture_sheet);
 
