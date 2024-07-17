@@ -44,6 +44,10 @@ void Player::update(const float& dt)
 		{
 			this->animationComponent->play("WALK_RIGHT", dt);
 		}
+		else if (this->movementComponent->getStates(MOVING_LEFT))
+		{
+			this->animationComponent->play("WALK_LEFT", dt);
+		}
 	}
 
 	this->hitboxComponent->update();
