@@ -42,11 +42,23 @@ void Player::update(const float& dt)
 	{
 		if (this->movementComponent->getStates(MOVING_RIGHT))
 		{
+			this->sprite.setOrigin(0.f, 0.f);
+			this->sprite.setScale(1.f, 1.f);
 			this->animationComponent->play("WALK_RIGHT", dt);
 		}
 		else if (this->movementComponent->getStates(MOVING_LEFT))
 		{
-			this->animationComponent->play("WALK_LEFT", dt);
+			this->sprite.setOrigin(120.f, 0.f);
+			this->sprite.setScale(-1.f, 1.f);
+			this->animationComponent->play("WALK_RIGHT", dt);
+		}
+		else if (this->movementComponent->getStates(MOVING_UP))
+		{
+			this->animationComponent->play("WALK_RIGHT", dt);
+		}
+		else if (this->movementComponent->getStates(MOVING_DOWN))
+		{
+			this->animationComponent->play("WALK_RIGHT", dt);
 		}
 	}
 
