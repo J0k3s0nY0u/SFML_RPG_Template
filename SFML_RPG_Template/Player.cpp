@@ -23,6 +23,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 
 	this->animationComponent->addAnimation("IDLE_LEFT", 10.f, 0, 5, 12, 5, 128, 128);
 	this->animationComponent->addAnimation("WALK_RIGHT", 10.f, 0, 2, 7, 2, 128, 128);
+	this->animationComponent->addAnimation("ATTACK", 10.f, 0, 6, 4 , 2, 128, 128);
 }
 
 Player::~Player()
@@ -36,7 +37,7 @@ void Player::update(const float& dt)
 
 	if (this->movementComponent->getStates(IDLE))
 	{
-		this->animationComponent->play("IDLE_LEFT", dt);
+		this->animationComponent->play("ATTACK", dt);
 	}
 	else if (this->movementComponent->getStates(MOVING))
 	{
